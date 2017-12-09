@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Manager Course</title>
+</head>
+<body>
+
+<h1>Search Course</h1>
+<!--<form action="#" th:object="${seachInfo}" th:action="@{/tms/server/category/search}">-->
+<form action="#">
+    <p>Select
+        <select >
+            <option value="id" th:text="id"/>
+            <option value="name" th:text="name"/>
+        </select></p>
+    <p><input type="text"/></p>
+    <p><input type="submit" value="search"/></p>
+</form>
+
+<a th:href="@{/demo/server/book/add}">Add Book</a>
+</body>
+</html>
+

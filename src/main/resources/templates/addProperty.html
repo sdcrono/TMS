@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Manager Category</title>
+</head>
+<body>
+<h1>Form Add Property</h1>
+<form action="#" th:action="@{/demo/server/property/addProperty}" th:object="${property}" method="post">
+    <p>Name <input type="text" th:field="*{name}"/></p>
+    <p>Description <textarea th:field="*{description}"/></p>
+    <p><input type="submit" value="submit"/><input type="reset" value="reset"/></p>
+</form>
+</body>
+</html>

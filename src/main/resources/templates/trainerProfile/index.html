@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layoutstaff :: head"></head>
+<body class="hold-transition skin-purple sidebar-mini">
+<div class="wrapper">
+    <!--Header part of the indexwebpage -->
+    <header th:replace="layoutstaff :: header"></header>
+    <aside th:replace="layoutstaff :: aside"></aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Trainer List
+                <small>Control panel</small>
+            </h1>
+
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="col-md-15">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h1>Show list trainers</h1>
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>No</td>
+                                <td>Username</td>
+                                <td>Information</td>
+                                <td>Update</td>
+                            </tr>
+                            <tr th:each="item,itemStat:${listUser}" th:if="${item.active}==true">
+                                <td th:text="${itemStat.count}"></td>
+                                <td th:text="${item.username}"></td>
+                                <td><a th:href="@{/tms/trainers/{id}/profile(id=${item.id})}" >link</a></td>
+                                <td style="width:150px"><a type="button" class="btn btn-block btn-info" th:href="@{/tms/trainers/{id}/profile/updateProfile(id=${item.id})}" style="color:white;width: 100px">Update</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer th:replace="layoutstaff :: footer"></footer>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

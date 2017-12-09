@@ -1,0 +1,272 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="head">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Training Staff TMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <!-- Bootstrap 3.3.5 -->
+
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css}"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" th:href="@{https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css}"/>
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="../static/plugins/jvectormap/jquery-jvectormap-1.2.2.css" th:href="@{/plugins/jvectormap/jquery-jvectormap-1.2.2.css}"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css" th:href="@{/dist/css/AdminLTE.min.css}"/>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../static/dist/css/skins/_all-skins.min.css" th:href="@{/dist/css/skins/_all-skins.min.css}"/>
+
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css}"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" th:href="@{https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css}"/>
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="../static/plugins/jvectormap/jquery-jvectormap-1.2.2.css" th:href="@{/plugins/jvectormap/jquery-jvectormap-1.2.2.css}"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css" th:href="@{/dist/css/AdminLTE.min.css}"/>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../static/dist/css/skins/_all-skins.min.css" th:href="@{/dist/css/skins/_all-skins.min.css}"/>
+    <!-- jQuery 2.1.4 -->
+    <script src="../../static/plugins/jQuery/jQuery-2.1.4.min.js" th:src="@{/plugins/jQuery/jQuery-2.1.4.min.js}"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="../../static/bootstrap/js/bootstrap.min.js" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" th:src="@{/ui/1.11.4/jquery-ui.min.js}"></script>
+    <!-- Slimscroll -->
+    <script src="../../static/plugins/slimScroll/jquery.slimscroll.min.js" th:src="@{/plugins/slimScroll/jquery.slimscroll.min.js}"></script>
+    <!-- FastClick -->
+    <script src="../../static/plugins/fastclick/fastclick.min.js" th:src="@{/plugins/fastclick/fastclick.min.js}"></script>
+    <!-- AdminLTE App -->
+    <script src="../../static/dist/js/app.min.js" th:src="@{/dist/js/app.min.js}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../static/dist/js/demo.js" th:src="@{/dist/js/demo.js}"></script>
+    <!-- fullCalendar 2.2.5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js" th:src="@{/ajax/libs/moment.js/2.10.2/moment.min.js}"></script>
+    <script src="../../static/plugins/fullcalendar/fullcalendar.min.js" th:src="@{/plugins/fullcalendar/fullcalendar.min.js}"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+
+            /* initialize the external events
+             -----------------------------------------------------------------*/
+            function ini_events(ele) {
+                ele.each(function () {
+
+                    // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                    // it doesn't need to have a start or end
+                    var eventObject = {
+                        title: $.trim($(this).text()) // use the element's text as the event title
+                    };
+
+                    // store the Event Object in the DOM element so we can get to it later
+                    $(this).data('eventObject', eventObject);
+
+                    // make the event draggable using jQuery UI
+                    $(this).draggable({
+                        zIndex: 1070,
+                        revert: true, // will cause the event to go back to its
+                        revertDuration: 0  //  original position after the drag
+                    });
+
+                });
+            }
+            ini_events($('#external-events div.external-event'));
+
+            /* initialize the calendar
+             -----------------------------------------------------------------*/
+            //Date for the calendar events (dummy data)
+            var date = new Date();
+            var d = date.getDate(),
+                m = date.getMonth(),
+                y = date.getFullYear();
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month'
+                },
+                buttonText: {
+                    today: 'today',
+                    month: 'month'
+                },
+                //Random default events
+                events: [
+                ],
+                editable: true,
+                droppable: true, // this allows things to be dropped onto the calendar !!!
+                drop: function (date, allDay) { // this function is called when something is dropped
+
+                    // retrieve the dropped element's stored Event Object
+                    var originalEventObject = $(this).data('eventObject');
+
+                    // we need to copy it, so that multiple events don't have a reference to the same object
+                    var copiedEventObject = $.extend({}, originalEventObject);
+
+                    // assign it the date that was reported
+                    copiedEventObject.start = date;
+                    copiedEventObject.allDay = allDay;
+                    copiedEventObject.backgroundColor = $(this).css("background-color");
+                    copiedEventObject.borderColor = $(this).css("border-color");
+
+                    // render the event on the calendar
+                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+                    // is the "remove after drop" checkbox checked?
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove();
+                    }
+
+                }
+            });
+
+            /* ADDING EVENTS */
+            var currColor = "#3c8dbc"; //Red by default
+            //Color chooser button
+            var colorChooser = $("#color-chooser-btn");
+            $("#color-chooser > li > a").click(function (e) {
+                e.preventDefault();
+                //Save color
+                currColor = $(this).css("color");
+                //Add color effect to button
+                $('#add-new-event').css({"background-color": currColor, "border-color": currColor});
+            });
+            $("#add-new-event").click(function (e) {
+                e.preventDefault();
+                //Get value and make sure it is not null
+                var val = $("#new-event").val();
+                if (val.length == 0) {
+                    return;
+                }
+
+                //Create events
+                var event = $("<div />");
+                event.css({"background-color": currColor, "border-color": currColor, "color": "#fff"}).addClass("external-event");
+                event.html(val);
+                $('#external-events').prepend(event);
+
+                //Add draggable funtionality
+                ini_events(event);
+
+                //Remove event from text input
+                $("#new-event").val("");
+            });
+        });
+    </script>
+</head>
+<body class="hold-transition skin-purple sidebar-mini">
+<div class="wrapper">
+    <!--Header part of the indexwebpage -->
+    <header th:fragment="header" class="main-header">
+        <!-- Logo -->
+        <a th:href="@{/staff}" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>ST</b> TMS</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Trainning staff</b> TMS</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <!-- Tasks: style can be found in dropdown.less -->
+                    <!--<li class="dropdown tasks-menu">
+                        <a href="#" class="button">
+                            <i class="fa fa-calendar"></i>
+                            <span class="label label-danger"></span>
+                        </a>
+                    </li>-->
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="../../static/dist/img/avatar2.png" class="user-image" th:src="@{/dist/img/avatar2.png}" alt="User Image"/>
+                            <span class="hidden-xs">Trainning staff</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="../../static/dist/img/avatar2.png" class="img-circle" th:src="@{/dist/img/avatar2.png}" alt="User Image"/>
+                                <p>
+                                    Trainning staff
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div align="center" >
+                                    <a  th:href="@{/logout}" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--Side bar part of the webpage  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <aside th:fragment="aside" class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="../../static/dist/img/avatar2.png" class="img-circle" th:src="@{/dist/img/avatar2.png}" alt="User Image"/>
+                </div>
+                <div class="pull-left info">
+                    <p>Training staff</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i>Online</a>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="header">Control Panel</li>
+                <li class="active treeview">
+                    <a th:href="@{/staff}">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-mortar-board"></i>
+                        <span>Trainning Staff</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a th:href="@{/tms/trainees/}"><i class="fa fa-paper-plane"></i>Trainee</a></li>
+                        <li><a th:href="@{/tms/trainers/view}"><i class="fa fa-paper-plane"></i>Trainer profile</a></li>
+                        <li><a th:href="@{/tms/courses/}"><i class="fa fa-paper-plane"></i>Course</a></li>
+                        <li><a th:href="@{/tms/categories/}"><i class="fa fa-paper-plane"></i>Category</a></li>
+                        <li><a th:href="@{/tms/topics/}"><i class="fa fa-paper-plane"></i>Topic</a></li>
+                    </ul>
+                </li>
+                <!--<a href="">
+                        <i class="fa fa-calendar"></i> <span>Calendar</span>
+                    </a>
+                </li>-->
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <footer th:fragment="footer" class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0
+        </div>
+        <strong>Copyright TMSGroup</strong> All rights reserved.
+    </footer>
+
+</div>
+</body>
+</html>

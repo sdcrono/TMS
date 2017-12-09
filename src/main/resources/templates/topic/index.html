@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layoutstaff :: head"></head>
+<body th:attr="class=${role.id==2 ? 'hold-transition skin-purple sidebar-mini' : ''}"
+      th:attrappend="class=${role.id==1 ? 'hold-transition skin-red sidebar-mini' : ''}">
+<div class="wrapper">
+    <th:block th:if="${role.id}==2" th:remove="tag">
+        <header th:replace="layoutstaff :: header"></header>
+        <aside th:replace="layoutstaff :: aside"></aside>
+    </th:block>
+    <th:block th:if="${role.id}==1" th:remove="tag">
+        <header th:replace="layoutadmin :: header"></header>
+        <aside th:replace="layoutadmin :: aside"></aside>
+    </th:block>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Trainee
+                <small>Control panel</small>
+            </h1>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-15">
+                    <div class="box box-primary">
+                        <div class="box box-primary ">
+                            <section class="content">
+                                <form action="#" th:action="@{/tms/topics/search}" method="get">
+                                    <div class="input-group">
+                                        <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                                        <span class="input-group-btn">
+                                            <button type="submit" name="search" id="search-btn" class="btn btn-flat" value="search"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                </form>
+                                <div class="col-md-15">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h1>Show list topics</h1>
+                                        </div>
+                                        <form th:action="@{/tms/topics/courses}" th:object="${course}">
+                                            <p>Course</p>
+                                            <select class="form-control" th:field="*{id}">
+                                                <option th:each="item:${listCourse}" th:value="${item.id}" th:text="${item.name}"  th:if="${item.active}" ></option>
+                                            </select>
+                                            <input type="submit" th:value="submit"/>
+                                        </form>
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td >No</td>
+                                                    <td>Title</td>
+                                                    <td>Content</td>
+                                                    <td>Course</td>
+                                                    <td>Category</td>
+                                                    <td>Trainer</td>
+                                                    <td th:if="${role.id}==2">Assign Trainer</td>
+                                                    <td th:if="${role.id}==2">Update</td>
+                                                    <td th:if="${role.id}==2">Delete</td>
+                                                </tr>
+                                                <tr th:each="item,itemStat:${listTopic}" th:if="${item.active}">
+                                                    <td th:text="${item.id}"></td>
+                                                    <td th:text="${item.title}"></td>
+                                                    <td th:text="${item.content}"></td>
+                                                    <td th:text="${item.course.name}"></td>
+                                                    <td th:text="${item.course.category.name}"></td>
+                                                    <td>
+                                                        <span th:if="${item.trainer}==null" th:text="null"></span>
+                                                        <span th:if="${item.trainer}!=null" th:text="${item.trainer.username}"></span>
+                                                    </td>
+                                                    <td th:if="${role.id}==2" style="width:150px"><a th:if="${item.trainer}==null" class="btn btn-block btn-success" type="button" th:href="@{/tms/topics/{id}/trainers(id=${item.id})}" style="width:100px;color:white">Add</a>
+                                                    <a th:if="${role.id}==2" th:unless="${item.trainer}==null" class="btn btn-block btn-warning" type="button" th:href="@{/tms/topics/{id}/trainers/change(id=${item.id})}" style="width:100px;color:white">Change</a></td>
+                                                    <td th:if="${role.id}==2" style="width:150px"><a class="btn btn-block btn-info" type="button" th:href="@{/tms/topics/{id}/update(id=${item.id})}" style="width:100px;color:white">Update</a></td>
+                                                    <td th:if="${role.id}==2" style="width:150px"><a class="btn btn-block btn-danger"  type="button" th:href="@{/tms/topics/{id}/delete(id=${item.id})}" style="width:100px;color:white" onclick="return confirm('Are you sure ?')">Delete</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <a th:if="${role.id}==2" class="btn btn-block btn-success" style="width:100px; color:white" th:href="@{/tms/topics/add}">Add Topic</a>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /. box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <th:block th:if="${role.id}==2" th:remove="tag">
+        <footer th:replace="layoutstaff :: footer"></footer>
+    </th:block>
+    <th:block th:if="${role.id}==1" th:remove="tag">
+        <footer th:replace="layoutadmin :: footer"></footer>
+    </th:block>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

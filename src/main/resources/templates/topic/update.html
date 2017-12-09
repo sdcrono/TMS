@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layoutstaff :: head"></head>
+<body class="hold-transition skin-purple sidebar-mini">
+<div class="wrapper">
+    <header th:replace="layoutstaff :: header"></header>
+    <aside th:replace="layoutstaff :: aside"></aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Topic
+                <small>Control panel</small>
+            </h1>
+
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-20">
+                    <div class="box box-primary">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h1>Update Topic</h1>
+                            </div>
+                            <div class="box-body">
+                                <form action="#" th:action="@{/tms/topics/update}" th:object="${topic}" method="post">
+                                    <div class="input-group">
+                                        <input size="1200px" type="hidden" class="form-control" th:field="*{id}"/>
+                                        <p>Title: </p>
+                                        <input size="1200px" type="text" class="form-control" th:field="*{title}" placeholder="Name..." required=""/>
+                                        <div class="form-group">
+                                            <label>Content: </label>
+                                            <textarea style="width:100%;height:250px;resize:none;" id="description" th:field="*{content}"></textarea>
+                                        </div>
+
+                                        <div class="btn-group">
+                                            <input class="btn btn-primary" type="submit" value="Submit"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /. box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer th:replace="layoutstaff :: footer"></footer>
+    <!-- Control Sidebar -->
+</div>
+</body>
+</html>

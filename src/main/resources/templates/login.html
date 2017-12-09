@@ -1,0 +1,64 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width= device-width,initital-scale=1"/>
+  <title>Login</title>
+  <link href="../bootstrap-3.3.7/dist/css/bootstrap.min.css.map.css" rel="stylesheet" type="text/css" />
+  <link href="../test.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+<video id="bgvid"  playsinline="playsinline" th:autoplay="autoplay"  muted="muted" loop="loop">
+  <source src="../login/12345.mp4"/>
+</video>
+<div id="polina">
+  <div class="box">
+    <h1>Login</h1>
+    <form th:action="@{/login}" method="POST">
+      <p th:if="${param.error}" class="error">Invalid username or password</p>
+      <!--<p th:if="${param.logout}" class="success">You have been logged out</p>-->
+      <input type="text" name="username" autofocus="autofocus" placeholder="Your username" required=""/><br />
+      <input type="password" name="password" placeholder="Your password" required=""/><br />
+      <button type="submit">Login</button> <br />
+    </form>
+  </div>
+</div>
+<link href="resources/static/bootstrap-3.3.7/dist/css/bootstrap.min.css.map.css" th:href ="@{/bootstrap-3.3.7/dist/css/bootstrap.min.css.map.css}" rel="stylesheet" type="text/css" />
+<link href="../static/login.css" rel="stylesheet" type="text/css" th:href="@{/login.css}"/>
+</body>
+<style>
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+</style>
+</html>

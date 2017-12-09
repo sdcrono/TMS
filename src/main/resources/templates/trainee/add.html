@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layoutstaff :: head"></head>
+<body class="hold-transition skin-purple sidebar-mini">
+<div class="wrapper">
+    <header th:replace="layoutstaff :: header"></header>
+    <aside th:replace="layoutstaff :: aside"></aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Dashboard
+            </h1>
+
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-15">
+                    <!-- Profile Image -->
+                    <div class="box box-primary">
+                        <div class="box-body box-profile">
+                            <img class="profile-user-img img-responsive img-circle" src="../../static/dist/img/avatar2.png" th:src="@{/dist/img/avatar2.png}" alt="User profile picture"/>
+                            <h3 class="profile-username text-center">Training Staff</h3>
+                            <p class="text-muted text-center">Staff</p>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                    <div class="box box-primary">
+                        <section class="content">
+                            <form role="form" th:action="@{/tms/trainees/addTrainee}" th:object="${trainee}" method="post">
+                                <div class="box-body">
+                                    <label>User name:</label>
+                                    <div class="form-group" >
+                                        <input th:field="*{user.username}" type="text" class="form-control" placeholder="User name" required=""/>
+                                    </div>
+                                    <label>Password:</label>
+                                    <div class="form-group">
+                                        <input th:field="*{user.password}" type="password" class="form-control" placeholder="Password" required=""/>
+                                    </div>
+                                    <label>Name: </label>
+                                    <div class="form-group">
+                                        <input th:field="*{name}" type="text" class="form-control" placeholder="User name" required=""/>
+                                    </div>
+                                    <label>Birthday: </label>
+                                    <div class="form-group">
+                                        <!--<div class="input-group-addon"> <i class="fa fa-calendar"> </i> </div>-->
+                                        <!--<input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" th:field="*{birthDate}"/>-->
+                                        <input type="date" class="form-control" th:field="*{birthDate}" required=""/>
+                                    </div>
+                                    <label>Education:</label>
+                                    <div class="form-group" >
+                                        <input  th:field="*{education}" class="form-control" placeholder="Education" required=""/>
+                                    </div>
+                                    <label>Programming Language:</label>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Programming Language" th:field="*{programmingLanguage}" required=""/>
+                                    </div>
+                                    <label>Toiec Score:</label>
+                                    <div class="form-group" >
+
+                                        <input type="number" th:field="*{toeicScore}" class="form-control" placeholder="Toiec Score" required=""/>
+                                    </div>
+                                    <label>Experience Details:</label>
+                                    <div class="form-group" >
+                                        <input  th:field="*{experienceDetail}" class="form-control" placeholder="Experiment Details" required=""/>
+                                    </div>
+                                    <label>Department:</label>
+                                    <div class="form-group">
+                                        <input th:field="*{department}" class="form-control" placeholder="Department" required=""/>
+                                    </div>
+                                    <label>Location:</label>
+                                    <div class="form-group">
+
+                                        <input th:field="*{location}"  class="form-control" placeholder="Location" required=""/>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div class="col-xs-4" style="margin-top: 20px">
+                                            <button type="submit" style="width: 25%" class="btn btn-primary btn-block btn-flat">
+                                                Create
+                                            </button>
+                                        </div><!-- /.col -->
+                                    </div>
+                                </div>
+
+                            </form>
+                            <div class="callout callout-info">
+                                <h4>Tip!</h4>
+                                <p>Using the Control Panel for easy to use the website and locale the place you need to work with. Everything will be more simple for you managerment.</p>
+                            </div>
+                            <div class="callout callout-danger">
+                                <h4>Warning!</h4>
+                                <p>Do not provide your account to strangers or anyone request you except the development team leader.We will not take reposibility for your action if you provide your account to other or getting back your account because the stealer can change anything when they got your account</p>
+                            </div>
+                            <div class="box box-default">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Blank Box</h3>
+                                </div>
+                                <div class="box-body">
+                                    <p>Any question or opinions please contact us via email supportteam@gmail.com</p>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </section><!-- /.content -->
+                    </div><!-- /.box-body -->
+                </div><!-- /.tab-content -->
+            </div><!-- /.nav-tabs-custom -->
+        </section><!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer th:replace="layoutstaff :: footer"></footer>
+    <!-- Control Sidebar -->
+</div>
+
+</body>
+</html>

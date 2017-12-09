@@ -1,0 +1,102 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layouttrainer :: head"></head>
+<body class="hold-transition skin-green sidebar-mini">
+<div class="wrapper">
+    <header th:replace="layouttrainer :: header"></header>
+    <aside th:replace="layouttrainer :: aside"></aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Dashboard
+            </h1>
+
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-15">
+                    <!-- Profile Image -->
+                    <div class="box box-primary">
+                        <section class="content">
+                            <div class="row">
+                                <div class="col-md-15">
+                                    <!-- Profile Image -->
+                                    <div class="box box-primary">
+                                        <div class="box-body box-profile">
+                                            <img class="profile-user-img img-responsive img-circle" src="../../static/dist/img/avatar04.png" th:src="@{/dist/img/avatar04.png}" alt="User profile picture"/>
+                                            <h3 class="profile-username text-center">Trainee Profile</h3>
+                                            <p class="text-muted text-center">Profile</p>
+                                        </div><!-- /.box-body -->
+                                    </div><!-- /.box -->
+                                    <div class="box box-primary">
+                                        <section class="content">
+                                            <form role="form" th:action="@{/tms/updateProfile}" th:object="${trainer}" method="get">
+                                                <div class="box-body">
+                                                    <label>Name:</label>
+                                                    <div class="form-group" >
+                                                        <input type="hidden" th:field="*{user}"/>
+                                                        <input type="text" th:field="*{name}" class="form-control" required=""/>
+                                                    </div>
+                                                    <label>Email: </label>
+                                                    <div class="form-group">
+                                                        <input type="email" th:field="*{email}" class="form-control" required=""/>
+                                                    </div>
+                                                    <label>Phone number:</label>
+                                                    <div class="form-group" >
+                                                        <input type="number" th:field="*{phone}" class="form-control" required=""/>
+                                                    </div>
+                                                    <label>Working place:</label>
+                                                    <div class="form-group">
+                                                        <input type="text" th:field="*{address}" class="form-control" required=""/>
+                                                    </div>
+                                                    <label>Type</label>
+                                                    <div class="form-group" >
+                                                        <select class="form-control" th:field="*{type}">
+                                                            <option class="form-control" th:value="External" th:text="External"></option>
+                                                            <option class="form-control" th:value="Internal" th:text="Internal"></option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="btn btn-primary" type="submit" value="Submit"/>
+                                                    </div><!-- /.col -->
+                                                </div>
+                                            </form>
+                                            <div class="callout callout-info">
+                                                <h4>Tip!</h4>
+                                                <p>Using the Control Panel for easy to use the website and locale the place you need to work with. Everything will be more simple for you managerment.</p>
+                                            </div>
+                                            <div class="callout callout-danger">
+                                                <h4>Warning!</h4>
+                                                <p>Do not provide your account to strangers or anyone request you except the development team leader.We will not take reposibility for your action if you provide your account to other or getting back your account because the stealer can change anything when they got your account</p>
+                                            </div>
+                                            <div class="box box-default">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">Blank Box</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <p>Any question or opinions please contact us via email supportteam@gmail.com</p>
+                                                </div><!-- /.box-body -->
+                                            </div><!-- /.box -->
+                                        </section><!-- /.content -->
+                                    </div><!-- /.box-body -->
+                                </div><!-- /.tab-content -->
+                            </div><!-- /.nav-tabs-custom -->
+                        </section><!-- /.content -->
+
+
+
+
+
+
+                    </div><!-- /.box-body -->
+                </div><!-- /.tab-content -->
+            </div><!-- /.nav-tabs-custom -->
+        </section><!-- /.content -->
+    </div>
+    <footer th:replace="layouttrainer :: footer"></footer>
+</div>
+</body>
+</html>

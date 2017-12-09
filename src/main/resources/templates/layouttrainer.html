@@ -1,0 +1,181 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="head">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Trainer</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <!-- Bootstrap 3.3.5 -->
+
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css}"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" th:href="@{https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css}"/>
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="../static/plugins/jvectormap/jquery-jvectormap-1.2.2.css" th:href="@{/plugins/jvectormap/jquery-jvectormap-1.2.2.css}"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css" th:href="@{/dist/css/AdminLTE.min.css}"/>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../static/dist/css/skins/_all-skins.min.css" th:href="@{/dist/css/skins/_all-skins.min.css}"/>
+
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css}"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" th:href="@{https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css}"/>
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="../static/plugins/jvectormap/jquery-jvectormap-1.2.2.css" th:href="@{/plugins/jvectormap/jquery-jvectormap-1.2.2.css}"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css" th:href="@{/dist/css/AdminLTE.min.css}"/>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../static/dist/css/skins/_all-skins.min.css" th:href="@{/dist/css/skins/_all-skins.min.css}"/>
+    <!-- jQuery 2.1.4 -->
+    <script src="../static/plugins/jQuery/jQuery-2.1.4.min.js" th:src="@{/plugins/jQuery/jQuery-2.1.4.min.js}"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="../static/bootstrap/js/bootstrap.min.js" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" th:src="@{https://code.jquery.com/ui/1.11.4/jquery-ui.min.js}"></script>
+    <!-- Slimscroll -->
+    <script src="../static/plugins/slimScroll/jquery.slimscroll.min.js" th:src="@{/plugins/slimScroll/jquery.slimscroll.min.js}"></script>
+    <!-- FastClick -->
+    <script src="../static/plugins/fastclick/fastclick.min.js" th:src="@{/plugins/fastclick/fastclick.min.js}"></script>
+    <!-- AdminLTE App -->
+    <script src="../static/dist/js/app.min.js" th:src="@{/dist/js/app.min.js}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../static/dist/js/demo.js" th:src="@{/dist/js/demo.js}"></script>
+    <!-- fullCalendar 2.2.5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js}"></script>
+    <script src="../static/plugins/fullcalendar/fullcalendar.min.js" th:src="@{/plugins/fullcalendar/fullcalendar.min.js}"></script>
+    <!-- Page specific script -->
+
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+<div class="wrapper">
+    <!--Header part of the indexwebpage -->
+    <header class="main-header" th:fragment="header">
+        <!-- Logo -->
+        <a href="#" class="logo" >
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>TS </b>TMS</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Trainer </b>TMS</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="../../staic/dist/img/avatar04.png" class="user-image" alt="User Image" th:src="@{/dist/img/avatar04.png}"/>
+                            <span class="hidden-xs">Trainer</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="../../staic/dist/img/avatar04.png" class="img-circle" alt="User Image" th:src="@{/dist/img/avatar04.png}"/>
+                                <p>
+                                    Trainer
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a th:href="@{/tms/profile}" class="btn btn-default btn-flat">Edit Profile</a>
+                                </div>
+                                <div class="pull-right" >
+                                    <a th:href="@{/logout}" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--Side bar part of the webpage  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <aside class="main-sidebar" th:fragment="aside">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="../../static/dist/img/avatar04.png" class="img-circle" alt="User Image" th:src="@{/dist/img/avatar04.png}"/>
+                </div>
+                <div class="pull-left info">
+                    <p>Training Staff</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i>Online</a>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="header">Control Panel</li>
+                <li class="active treeview">
+                    <a th:href="@{/staff}">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-mortar-board"></i>
+                        <span>Trainer</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a th:href="@{/tms/trainer/courses}"><i class="fa fa-paper-plane"></i>Course</a></li>
+                        <li><a th:href="@{/tms/trainer/topics}"><i class="fa fa-paper-plane"></i>Topic</a></li>
+                        <li><a th:href="@{/tms/profile}"><i class="fa fa-paper-plane"></i>Profile</a></li>
+                    </ul>
+                </li>
+                <!--<li class="treeview">
+                    <a href="calendaradmin.html" th:href="calendaradmin.html">
+                        <i class="fa fa-calendar"></i> <span>Calendar</span>
+                    </a>
+                </li>-->
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <footer th:fragment="footer" class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0
+        </div>
+        <strong>Copyright TMSGroup</strong> All rights reserved.
+    </footer>
+
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

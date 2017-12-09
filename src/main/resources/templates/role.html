@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Manager Course</title>
+</head>
+<body>
+
+<h1>Search Course</h1>
+<!--<form action="#" th:object="${seachInfo}" th:action="@{/tms/server/category/search}">-->
+<form action="#">
+    <p>Select
+        <select >
+            <option value="id" th:text="id"/>
+            <option value="name" th:text="name"/>
+        </select></p>
+    <p><input type="text"/></p>
+    <p><input type="submit" value="search"/></p>
+</form>
+
+<h1>Show list Role</h1>
+<table border="2">
+    <tr>
+        <td>No</td>
+        <td>Name</td>
+        <td>Update</td>
+        <td>Delete</td>
+    </tr>
+    <tr th:each="item:${listRole}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td><a th:href="@{/demo/server/role/update/{id}(id=${item.id})}">Update</a></td>
+        <td><a th:href="@{/demo/server/role/delete/{id}(id=${item.id})}">Delete</a></td>
+    </tr>
+</table>
+
+<a th:href="@{/demo/server/role/add}">Add Role</a>
+<a th:href="@{/demo/server/role/addPermission}">Add permission</a>
+</body>
+</html>
+
